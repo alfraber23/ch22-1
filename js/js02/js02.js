@@ -128,7 +128,16 @@ function factorialConRecursion(a) {
 console.log("Factorial de 3 es: " + factorialConRecursion(5));
 console.log("Factorial de 3 es: " + factorialConRecursion(3));
 
+function saludo(x) {
+    if(x<1){
+        return console.log("Hola " + x);
+    }
+    saludo(x-1);
+    return console.log("Hola " + x);
+    
+}
 
+console.log(saludo(10));
 
 
 
