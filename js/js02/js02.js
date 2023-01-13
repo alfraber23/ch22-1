@@ -1,149 +1,151 @@
-console.log("Sesion Js02");
+console.log("Sesión JS02");
 
-/* 
-funciones declaradas / funciones definidas
-function declaration / function statement
+/*
+Funciones declaradas / funciones definidas
+(function declaration / function statement)
 
-una caracteristisca que tiene las funciones declaradas
-es que tienen hoisting (elevacion)
+Una característica de las funciones declaradas
+es que tiene hoisting (elevación).
 
 */
+console.log("El resultado de 5 * 10 = " + multiplica(5, 10) );
 
-function multiplica(a,b) {
-    return a*b;
+function multiplica( a, b){
+    return a * b;
 }
 
-console.log("El resultado de 5 * 10 es: " + multiplica(5,10));
+/*
+ Funciones Expresadas
 
-/* 
-Funciones expresadas
+ Las funciones expresadas (function expressions) son funciones
+ que son declradas dentro de la asignación de una variable.
 
-Las funciones expresadas o function expression son funciones
-que son declaradas dentro de la asignacion de una variable.
-Estas funciones pueden ser anonimas  (que no tiene nombre).
-Las funciones expresadas no tienen hoisting
+ Estas funciones pueden ser anónimas ( no tienen nombre).
+ Las funciones expresadas no tiene hoisting.
+
 */
-
 
 /**
  * Suma dos valores
  * @param {number} a primer operador para sumar
  * @param {number} b segundo operador para sumar
  * @returns resultado de a + b;
-*/
-const suma =  function (a,b){
-    const result = a+b;
+ */
+const suma = function ( a , b ) { 
+    const result = a + b;
     return result;
 };
 
-console.log("La sumatoria de 4 + 6 es: " + suma(4,6));
+console.log("La sumatoria de 4 + 6 = " + suma(4 , 6) );
 
-/* 
-Funciones autoinvocadas
+/*
+Funciones autoinvocadas.
 
-Las funciones autoinvocadas (selft-invoking functions)
-son funciones que se ejecutan en su defenicion.
-Pueden ser anonimas.
+Las funciones autoinvocadas( selft-invoking functions)
+Son funciones que se ejecutan en su definición.
+Pueden ser anónimas.
 */
 
-(function  saludo(){
+( function saludo(){
     console.log("Hola, me estoy autoinvocando");
 })();
 
-/* 
-Funciones flecha
+/*
+ Funciones Flecha
 
-Una funcion flecha o lo que es arrow function son similares
-a las funciones expresadas pero no requiere la palabra function.
-Ademas si solo tiene un instruccion y es el retorno no requiere
-la instruccion return ni las llavaes {}
-Las funciones flecha no tienen hoisting
+ Una función flecha(arrow functions) son similares
+ a las funciones expresadas, pero no requiere la palabra
+ function. Además, si solo tiene una instrucción y es el retorno,
+ no requiere la instrucción return y las llaves {}.
+
+ Las funciones flechas no tiene hoisting.
 */
 
-const restaExpresada = function (a,b) {
+const restaExpresada = function (a, b){
     return a-b;
 }
 
-const resta = (a,b) => a-b
-console.log("La resta de 20 - 2 es: " + resta(20,2));
+const resta = ( a , b ) => a - b;
+console.log("La resta de 20 - 2 = " + resta(20,2));
 
-const exponente = (a,b) => {
-    const result=a**b;
+const exponente = ( a , b ) => {
+    const result = a ** b;
     return result;
 }
-console.log("El numero 4^3 es: " + exponente(4,3));
+console.log("El número 4^3 = " + exponente(4,3));
 
-const exponenteAlCuadrado = (a) => a**2;
-console.log("El numero 4^2 es: " + exponenteAlCuadrado(4));
+const exponenteAlCuadrado =  a  => a ** 2;
+console.log("El número 4^2 = " + exponenteAlCuadrado(4) );
 
-/* 
-Funciones con parametro inicializados
+const imprimeSaludo = () => console.log("Holi crayoli");
+imprimeSaludo();
+
+/*
+Funciones con parámetros inicializados.
+
 */
-
-function divide(a=1,b=2) {
+function divide( a=1 , b=1){
     return a/b;
 }
-console.log("La division de 3 entre 1 es igual a: " + divide(3));
 
-/* 
-Rest parameters
-El parametro rest nos permite una serie de valores indefinidos
-en los argumentos como un array.
+console.log("La división de 3/1 = " + divide(5) );
 
+/*
+Rest Parameters
+El parámetro rest nos permiten representar una serie de valores
+indefinidos en los argumentos como un array.
+
+El parámetro rest siempre debe ir al final de todos los parámetros
 */
-
-function sumatoriaIndefinida (a,b,...restoDatos){
+function sumatoriaIndefinida(a, b, ...restoDatos){
     let sumatoria = a + b;
     for (let i = 0; i < restoDatos.length; i++) {
-        sumatoria += restoDatos[i];
+        sumatoria +=  restoDatos[i]; // sumatoria = sumatoria + restoDatos[i];        
     }
     return sumatoria;
 }
-console.log("Sumar varios numeros: " + sumatoriaIndefinida(2,3,5,10,11));
+console.log("Sumar varios números: " + sumatoriaIndefinida(2, 3, 5, 10, 11));
 
-/* 
-Funcion recursiva
-una funcion recursiva es una funcion que se llama asi misma.
+/*
+ Funciones recursivas.
+ función recursiva es una función que se llama a si misma.
 */
-// factorial de 0=1
-//factorial de 3=3*2*1;
-//factorial de 5 = 5*4*3*2*1;
-
-function factorialConCicloFor(a) {
+// Factorial de 0 = 1
+// factorial de 3 = 3 * 2 * 1; //6
+// factorial de 5 = 5 * 4 * 3 * 2 * 1; // 120
+function factoriaConCicloFor( a ){
     let total = 1; 
 	for (i=1; i<=a; i++) {
 		total *= i; 
 	}
 	return total;
 }
-console.log("Factorial de 5 es: " + factorialConCicloFor(5));
-console.log("Factorial de 3 es: " + factorialConCicloFor(3));
 
-function factorialConRecursion(a) {
-    if (a<1) {
+function factorial( number ){
+    if( number < 1) 
         return 1;
-    }
-    return a * factorialConRecursion( a - 1 );
-}
-console.log("Factorial de 3 es: " + factorialConRecursion(5));
-console.log("Factorial de 3 es: " + factorialConRecursion(3));
-
-function saludo(x) {
-    if(x<1){
-        return console.log("Hola " + x);
-    }
-    saludo(x-1);
-    return console.log("Hola " + x);
-    
+    return number * factorial( number - 1 )
 }
 
-console.log(saludo(10));
 
+console.log("Factorial 3 = " + factoriaConCicloFor(3) ); //6
+console.log("Factorial 5 = " + factoriaConCicloFor(5) ); //120
+console.log("Factorial 3 = " + factorial(3) ); //6
+console.log("Factorial 5 = " + factorial(5) ); //120
 
+// Hacer una recursión que muestre en consola una saludo como
+/*
+Saludo 1
+Saludo 2
+Saludo 3 ... Saludo 10
 
+saludo(10);
+*/
 
-
-
-
-
-
+function saludo( cantidad, iteracion=1 ){
+    console.log("saludo" + iteracion);
+    if( iteracion >= cantidad) 
+        return 1;
+    return saludo( cantidad, iteracion+1 );
+}
+saludo(10);

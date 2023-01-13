@@ -1,119 +1,178 @@
-console.log("Sesion Js03");
+console.log("Sesión JS03");
 
-const datosUsuario = {nombre:"Jessica", ciudad:"CDMX"};
+const datosUsuario = {nombre:"Jessica" , ciudad:"CDmx"};
 
-// Declaracion de bloque
+//Declaración de bloque.
 {
-    /* 
-    Esto es una declaracion de bloque
-    en donde las variables declaradas (let y const)
-    solo tendran alcance dentro del bloque o
-    bloque anidadosdentro del bloque
-    */
-    const datosUsuario = {nombre:"Wicho", ciudad:"Acuascalientes"};
-    console.log(`${datosUsuario.nombre} `);
-    
+    //ESto es un declaaración de bloque
+    //en donde las variables declaradas(let , const)
+    //solo tendrán alcance(scope) dentro del bloque o 
+    //bloque anidados dentro del bloque
+    const datosUsuario = {nombre:"Wicho" , ciudad:"Aguascalientes"};
+    const numPersonas = 49;
+    console.log(`${datosUsuario.nombre} nos saluda de ${datosUsuario.ciudad}`);
+    {
+        console.log(`${datosUsuario.nombre} nos saluda de ${datosUsuario.ciudad}`);        
+    }
 }
 
-console.log(`${datosUsuario.nombre} nos saluda desde ${datosUsuario.ciudad}`);
+console.log(`${datosUsuario.nombre} nos saluda de ${datosUsuario.ciudad}`);
+//La variable numPersonas no está definido.
+//console.log(`En este momento hay ${numPersonas} escuchando rolitas de Shakira`);
 
-/* 
-    la variable numPersonas no esta definida
-    console.log(`En este momento hay ${numPersonas} escuchando rolitas de shakira`)
+//Condicional If
+/*Sintaxis
+    if(condiciónVerdadera ) instrucción;
+    
+    if(condiciónVerdadera ) instrucción;
+    else instrucción_en_caso_contrario;
 
-    Condicional if
-    Sintaxis
-    if(Condicion verdadera) instruccion;
+    if(condiciónVerdadera ) {
+        instrucciones;
+    }
 */
-
-const respuesta = true; //confirm("Te gusta shakira?");
+const respuesta = false; //confirm("¿Te gusta Shakira?");
 console.log(respuesta);
-let mensaje="hola";
+let mensaje;
 
-if (respuesta) {
-    let mensaje="Entonces te pongo WakaWaka";
-    mensaje="Te fe-li-ci-to que bien actuas";
+if(respuesta){
+    //mensaje = "Entonces te pongo WakaWaka";
+    mensaje = "Te fe-li-ci-to que bien actuas";
 }
 else
-    mensaje="Entonces te pongo su chambelan"
+    mensaje = "Entonces te pongo Su Chambelán";
 console.log(mensaje);
 
-//operador ternario
-//sintaxis: condicion? condicion_verdadera: condicion_falsa;
+//Operador ternario.
+//Sintaxis: condición ? condición_verdadera : condición_falsa;
 
-let teamFrio = true; //confirm("Te gausta el frio?");
-//let mensajeTernario = teamFrio ? "hielito":"ponche";
-//console.log(`Te voy a servir ${mensajeTernario}`);
+let teamFrio = true; //confirm("¿Te gusta el frío?");
+//let mensajeTernario = teamFrio ? "hielito" : "ponche";
+//console.log(`Te voy a servir: ${mensajeTernario} `);
+console.log(`Te voy a servir: ${ teamFrio ? "hielito":"ponche" }`);
 
-console.log(`Te voy a servir: ${teamFrio ? "hielito":"ponche"}`);
+let cantante = "Sergio";
 
-let cantante="Pique";
-console.log(`tu reloj es: ${ cantante==='Shakira' ? "Rolex": cantante==='Pique' ?"Casio":"el sol"}`);
-
-let nombrePersona="Sergio"
+console.log(`Tu reloj es ${  cantante==='Shakira'? "Rolex" :
+                             cantante ==="Pique" ? "Casio" : "el sol" }`);
+/*
+    let marcaReloj;
+    if( cantante === 'Shakira' ) marcaReloj = "Rolex";
+    else{
+        if( cantante === 'Pique') marcaReloj = "Casio"
+        else marcaReloj = "el sol";
+    }
+    console.log(`Tu reloj es ${ marcaReloj})
+*/
+// condicional If, Else, Else IF
+/* Sintaxis
+    if(condiciónVerdadera ) instrucción;
+    else if (segundaCondicion) instrucción
+    else if (terceraCondicion) instrucción
+    else if (condicion n) instrucción
+    else instrucción;
+*/
+let nombrePersona = 'Karla';
 let marcaReloj;
-if (cantante==='Shakira') {
-    marcaReloj="Rolex";
-} else if(cantante==='Pique'){
-    marcaReloj="Casio";
-} else if(cantante==='Sergio'){
-    marcaReloj="El sol";
-}else
-    marcaReloj="Uno de cars";
-console.log(`${nombrePersona} tu reloj es ${marcaReloj}`);
+if( nombrePersona === 'Shakira' ) 
+    marcaReloj = 'Rolex';
+else if( nombrePersona === 'Pique' || nombrePersona ==='Karla' ) 
+    marcaReloj = 'Casio';
+else if( nombrePersona === 'Sergio') 
+    marcaReloj = 'el sol';
+else 
+    marcaReloj = 'uno de cars';
 
+console.log(`${nombrePersona} tu reloj es ${ marcaReloj}`);
 
-let mes= 1; //prompt("De que mes quieres saber la estacion?");
-const mesNombre=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", 
-                    "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-switch (Number(mes)) {
-    case 1:
-        console.log("En " + mesNombre[0] + " la estacion del año es Invierno");
+//Operadores lógicos and(&&) y or(||)
+/*AND
+  A        B ->   C
+  true    true    true
+  true    false   false
+  false   true    false
+  false   false   false
+
+  OR
+  A        B ->   C
+  true     true   true
+  true     false  true
+  false    true   true
+  false    false  false
+*/
+
+/*
+  Condicional Switch
+    Sintaxis:
+        switch(expresion){
+            case valor1:
+                instrucciones;
+                break;
+            caso valor2:
+                instrucciones;
+                break;
+            caso valorn:
+                instrucciones;
+                break;
+            defaul:
+                instrucciones;
+        }
+*/
+nombrePersona = 'Mon';
+marcaReloj = '';
+
+switch(nombrePersona){
+    case 'Shakira': //nombrePersona ==== 'Shakira';
+        marcaReloj = 'Rolex';
         break;
-    case 2:
-        console.log("En " + mesNombre[1] + " la estacion del año es Invierno");
+    case 'Pique':            
+    case 'Karla':
+        marcaReloj = 'Casio';
         break;
-    case 3:
-        console.log("En " + mesNombre[2] + " la estacion del año es Primavera");
+    case 'Sergio':
+        marcaReloj = 'El sol';
         break;
-    case 4:
-        console.log("En " + mesNombre[3] + " la estacion del año es Primavera");
-        break;
-    case 5:
-        console.log("En " + mesNombre[4] + " la estacion del año es Primavera");
-        break;
-    case 6:
-        console.log("En " + mesNombre[5] + " la estacion del año es Verano");
-        break;
-    case 7:
-        console.log("En " + mesNombre[6] + " la estacion del año es Verano");
-        break;
-    case 8:
-        console.log("En " + mesNombre[7] + " la estacion del año es Verano");
-        break;
-    case 9:
-        console.log("En " + mesNombre[8] + " la estacion del año es Otoño");
-        break;
-    case 10:
-        console.log("En " + mesNombre[9] + " la estacion del año es Otoño");
-        break;
-    case 11:
-        console.log("En " + mesNombre[10] + " la estacion del año es Otoño");        
-        break;
-    case 12:
-        console.log("En " + mesNombre[11] + " la estacion del año es Invierno");        
+    case 'Mon':
+        marcaReloj = 'Ferrari';
         break;
     default:
-        console.log("Ese no es un mes valido");        
-        break;
+        marcaReloj = 'Uno de Cars'
+}
+console.log(`Switch - ${nombrePersona} tu reloj es ${ marcaReloj}`);
+
+/*
+    Preguntar(prompt) el número de mes, del 1 al 12.
+    de acuerdo al mes indica desplegar en consola
+    la estación del año:
+    mes 12, 1, 2 = Invierno;
+    mes 3, 4, 5 = Primavera;
+    mes 6, 7, 8 = Verano;
+    mes 9, 10, 11 = Otoño;
+
+    Usar switch.
+    La estación del año es invierno
+    Mes: 1
+    En enero la estación del año es invierno
+    mes: 6
+    En junio la estación del año es verano
+*/
+
+function buscaEstacionYMes (mes){
+    //siwtch
+    return "mensaje";
 }
 
-//---------Refactorizando, usando un operador ternario
-function factorial( number ){ 
-        return reslut = number<1?1: number * factorial( number - 1 )
+function validaMes( mes ){
+    if(mes>=1 && mes<=12) buscaEstacionYMes(mes);
+    else
+     console.log("error del mes");
+}
+
+const respuestaUsuario =12 //parseInt(prompt("Ingresa el mes"));
+validaMes(respuestaUsuario);
+
+//---------Refactorizar, usando un operador ternario
+function factorial( number ){
+    return number<1 ? 1 : number * factorial(number-1);
 }
 console.log("Factorial 5 = " + factorial(5) ); //120
-
-
-
-
