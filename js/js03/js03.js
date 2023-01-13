@@ -63,7 +63,7 @@ if (cantante==='Shakira') {
 console.log(`${nombrePersona} tu reloj es ${marcaReloj}`);
 
 
-let mes=prompt("De que mes quieres saber la estacion?");
+let mes= 1; //prompt("De que mes quieres saber la estacion?");
 const mesNombre=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", 
                     "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 switch (Number(mes)) {
@@ -109,13 +109,10 @@ switch (Number(mes)) {
 }
 
 //---------Refactorizando, usando un operador ternario
-function factorial( number ){
-    if( number < 1) 
-        return 1;
-    return number * factorial( number - 1 )
+function factorial( number ){ 
+        return reslut = number<1?1: number * factorial( number - 1 )
 }
 console.log("Factorial 5 = " + factorial(5) ); //120
-
 
 
 
