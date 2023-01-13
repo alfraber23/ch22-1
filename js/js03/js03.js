@@ -108,6 +108,15 @@ switch (Number(mes)) {
         break;
 }
 
+//---------Refactorizando, usando un operador ternario
+function factorial( number ){
+    if( number < 1) 
+        return 1;
+    return number * factorial( number - 1 )
+}
+console.log("Factorial 5 = " + factorial(5) ); //120
+
+
 
 
 
