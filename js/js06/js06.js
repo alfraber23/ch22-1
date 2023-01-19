@@ -34,7 +34,7 @@ const cambiaColor = () => {
     const negros = document.getElementsByTagName("em");
     console.log(negros.innerHTML);
     for (let i = 0; i < negros.length; i++) {
-        var nuevoElemento = document.createElement("em");
+        let nuevoElemento = document.createElement("em");
         nuevoElemento.style.color = "blue";
         nuevoElemento.innerHTML = negros[i].innerHTML;
         negros[i].parentNode.replaceChild(nuevoElemento, negros[i]);
