@@ -30,14 +30,41 @@ public class Variables {
 		//Definimos una variable de tipo int (32 bits)
 		int variableTipoInt = 1256;
 		System.out.println("Int: " + variableTipoInt);
-		System.out.println("Max int value: " + Integer.MAX_VALUE);
+		System.out.println("Max int value: " + Integer.MAX_VALUE); //2147483647
 		System.out.println("Min int value: " + Integer.MIN_VALUE);
 		
 		//Declaramos una variable de tipo long (64 bits)
 		long variableTipoLong = 123456;
 		System.out.println("Long: " + variableTipoLong);
-		System.out.println("Max long value: " + Long.MAX_VALUE);
+		System.out.println("Max long value: " + Long.MAX_VALUE); //9223372036854775807
 		System.out.println("Min long value: " + Long.MIN_VALUE);
+		
+		//Las literales numericas son de tipo int
+		// ejemplo 85452, 0, -26846516
+		
+		//agregando la letra L (en mayuscula)
+		//hacemos las literales numericas de tipo long
+		long maxValue = 9223372036854775807L; 
+		
+		//Definimos una variable de tipo float
+		/**
+		 * Nota: las literales de punto flotante son de tipo double
+		 * agregando la letra F (en mayuscula) hacemos las literales
+		 * numericas de tipo float
+		 */
+		float variableTipoFloat = 25.23F;
+		System.out.println("Float: " + variableTipoFloat);
+		System.out.println("Max float value: " + Float.MAX_VALUE);
+		System.out.println("Min float value: " + Float.MIN_VALUE);
+		
+		//Definimos una variable de tipo double (64 bits)
+		double variableTipoDouble = 652.3256;
+		System.out.println("Double: " + variableTipoDouble);
+		System.out.println("Max double value: " + Double.MAX_VALUE);
+		System.out.println("Min double value: " + Double.MIN_VALUE);
+		
+		System.out.println("Suma de 3.1 + 2.2 = " + ((3.1*10+2.2*10)/10));
+		
 	}
 	
 	
