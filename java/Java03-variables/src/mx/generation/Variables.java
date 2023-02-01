@@ -28,13 +28,13 @@ public class Variables {
 		System.out.println("Min short value: " + Short.MIN_VALUE);
 		
 		//Definimos una variable de tipo int (32 bits)
-		int variableTipoInt = 1256;
+		int variableTipoInt = 1_256;
 		System.out.println("Int: " + variableTipoInt);
 		System.out.println("Max int value: " + Integer.MAX_VALUE); //2147483647
 		System.out.println("Min int value: " + Integer.MIN_VALUE);
 		
 		//Declaramos una variable de tipo long (64 bits)
-		long variableTipoLong = 123456;
+		long variableTipoLong = 123_456;
 		System.out.println("Long: " + variableTipoLong);
 		System.out.println("Max long value: " + Long.MAX_VALUE); //9223372036854775807
 		System.out.println("Min long value: " + Long.MIN_VALUE);
@@ -65,6 +65,137 @@ public class Variables {
 		
 		System.out.println("Suma de 3.1 + 2.2 = " + ((3.1*10+2.2*10)/10));
 		
+		//Definimos una variable de tipo boolean
+		boolean variableTipoBoolean = true;
+		System.out.println("boolean: " + variableTipoBoolean);
+		variableTipoBoolean = false;
+		System.out.println("boolean: " + variableTipoBoolean);
+		
+		//Definimos una variable de tipo char
+		//Solo almacena un caracter de la tabla Unicode (16 bits)
+		//osea que puede almacenar del 0 al 65535
+		//Se define entre apostrofes '' porque si no da error
+		char variableTipoChar = 'K';
+		System.out.println("char: " + variableTipoChar);
+		variableTipoChar = '\u004c'; //L
+		System.out.println("char: " + variableTipoChar);
+		variableTipoChar = 77; //M
+		System.out.println("char: " + variableTipoChar);
+		//Asignar la letra Ñ en en numerico
+		variableTipoChar = 209; //Ñ
+		System.out.println("char: " + variableTipoChar);
+		
+		/**
+		 * Reglas para el nombre de variables
+		 * -Podemos usar cualquier caracter
+		 * 	int myVar;
+		 * 	int myVarEspañol; si se puede pero no se recomienda usar la ñ mejor usar ingles 
+		 * -no se puede comenzar el nombre con numero
+		 * 	int 5mentari05; no se puede
+		 * 	int sinc0mentarios; si se puede poner numeros mientras no esten la inicio
+		 * -utilizar en el nombre caracteres especiales solamente el $ y _
+		 * 	int #myVar; no se puede
+		 * 	int my#Var; no se puede
+		 * 	int $myVar; si se puede pero no se recomienda
+		 * 	int my$var; si se puede pero no se recomienda
+		 */
+		
+		/**
+		 * Representacion numerica
+		 * int varHexadecimal = 0x3c
+		 * int varBinario = 0b0011_1100
+		 */
+		
+		//Conversion de tipos de datos
+		//puedes cambiar el tipo de dato numerico de un pequeño a uno mas grande sin hacer nada
+		//se le conoce como upcasting
+			byte coquita600ml = 60;
+			short coquita2lt = coquita600ml;
+			System.out.println("coquita2lt: " + coquita2lt);
+		//downcating
+			short pozoleGrande = 200;
+			byte burbujaPozole = (byte) pozoleGrande;
+			System.out.println("pozole burbuja: " + burbujaPozole);
+			
+		//Los datos de tipo string son considerados objetos
+		//se define solo con comillas dobles
+			String varTipoString = "hola mundo";
+			System.out.println("String: " + varTipoString);
+			
+		//Pasar string a numero
+			byte edadMascota = Byte.parseByte("10");
+			double edadPlaneta = Double.parseDouble("1256892");
+			System.out.println("mascota: "+ edadMascota + " planeta: " + edadPlaneta);
+			
+		//Pasar datos numericos a un string
+			String edadMascotaString = String.valueOf(edadMascota);
+			System.out.println("Mascota string: " + edadMascotaString);
+			char primerCaracter = edadMascotaString.charAt(0);
+			System.out.println("Primer caracter: " + primerCaracter);
+			
+		/**
+		 * Operadores numericos
+		 * +, -, *, /, %, ++, --
+		 */
+			
+			int operadorA = 10;
+			int operadorB = 20;
+			int suma = operadorA+operadorB;
+			int resta = operadorA-operadorB;
+			int multiplica = operadorA*operadorB;
+			double division = (double)operadorA/operadorB;
+			double residuo = (double)operadorA%2;
+			System.out.println("Suma: " + suma); // 30
+			System.out.println("Resta: " + resta); // -10
+			System.out.println("Multiplica: " + multiplica); //200
+			System.out.println("Division: " + division); //0.5
+			System.out.println("Residuo: " + residuo); //
+			
+			//Incremento
+			System.out.println("Preincremento: " + ++operadorA);
+			System.out.println("Postincremento: " + operadorA++);
+			System.out.println("valor A: " + operadorA);
+			
+			System.out.println("Predecremento: " + --operadorB);
+			System.out.println("Postdecremento: " + operadorB--);
+			System.out.println("valor B: " + operadorB);
+			
+			System.out.println("Resultado: "+ (10*2+4-20/2));
+			
+		/**
+		 * Operadores comparativos
+		 * <, <=, >, >=, ==, !=
+		 */
+			
+			int numeroEmpleados = 1000;
+			System.out.println("Empleados > 1000: " + (numeroEmpleados>1000));
+			System.out.println("Empleados >= 1000: " + (numeroEmpleados>=1000));
+			System.out.println("Empleados < 1000: " + (numeroEmpleados<1000));
+			System.out.println("Empleados <= 1000: " + (numeroEmpleados<=1000));
+			System.out.println("Empleados == 1000: " + (numeroEmpleados==1000));
+			System.out.println("Empleados != 1000: " + (numeroEmpleados!=1000));
+			System.out.println("Resultado: "+ (numeroEmpleados>1000 || numeroEmpleados==100));
+			
+		/**
+		 * Operadores logicos
+		 * && (and) se retorna true si ambos operandos son true
+		 * || (or) se retorna true si uno de los operandos es true
+		 * ! (not) revierte el resultado
+		 */
+			//System.out.println("Operacion 15 && 'hola' " + (15 && "hola")); esto no se puede
+			System.out.println("numeroEmpleados<1000 || numeroEmpleados>1000: "+ (numeroEmpleados<1000 || numeroEmpleados>1000));
+			
+			boolean a = true;
+			boolean b = false;
+			boolean c = true;
+			System.out.println("boolean es: " + ((a && b)||(a&&c))); //true
+			System.out.println("boolean es: " + (a || b || c && a)); //true
+			System.out.println("boolean es: " + (!(a||b)&&(!a||c))); //false
+
+			
+			
+			
+			
 	}
 	
 	
